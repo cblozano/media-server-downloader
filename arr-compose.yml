@@ -20,14 +20,11 @@ services:
     volumes:
       - /docker/gluetun:/gluetun
     environment:
-      - VPN_SERVICE_PROVIDER=airvpn
-      - VPN_TYPE=wireguard
-      - FIREWALL_VPN_INPUT_PORTS=port
-      - WIREGUARD_PRIVATE_KEY=key
-      - WIREGUARD_PRESHARED_KEY=key
-      - WIREGUARD_ADDRESSES=ip
-      - SERVER_COUNTRIES=country
-      - SERVER_CITIES=city
+      - VPN_SERVICE_PROVIDER=nordvpn
+      - VPN_TYPE=openvpn # or wireguard
+      - OPENVPN_USER=
+      - OPENVPN_PASSWORD=
+      - SERVER_REGIONS=Canada
       - HEALTH_VPN_DURATION_INITIAL=120s
     healthcheck:
       test: ping -c 1 www.google.com || exit 1
